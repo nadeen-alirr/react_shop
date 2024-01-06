@@ -1,6 +1,7 @@
 import React from "react";
 import { products } from "../proudcts";
 import { Link, useParams } from "react-router-dom";
+import { useState,useEffect } from "react";
 import {
   Row,
   Col,
@@ -10,9 +11,28 @@ import {
   Button,
   } from "react-bootstrap";
 import Rating from "../component/Rating";
+import axios from "axios";
+import Proudcts from "../component/Proudcts";
 const ProuductScreen = () => {
+const [products,setProduct]=useState([]);
   const { id: productId } = useParams();
-  const product = products.find((p) => p._id === productId);
+useEffect(
+    () => {
+      const fetchProduct = async () => {
+        try {
+          const { data } = await axios.get(
+            `/api/prouduct/${productId}`
+          );
+          setProduct(data);
+          console.log(products);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchProduct();
+    },
+    [productId]
+  );
   return (
     <>
       <Link className="btn btn-light btn-goback" to="/">
@@ -20,30 +40,30 @@ const ProuductScreen = () => {
       </Link>
       <Row>
         <Col md={5} >
-          <Image className="img-fluid" src={product.image} alt={product.name} style={{ maxHeight: '500px' , borderRadius:'10px' ,marginTop:'20px', width:'100%'}} />
+          <Image className="img-fluid" src={products.image} alt={products.name} style={{ maxHeight: '500px' , borderRadius:'10px' ,marginTop:'20px', width:'100%'}} />
         </Col>
         <Col md={4}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h3>{product.name}</h3>
+              <h3>{products.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
-                value={product.rating}
-                text={`${product.numReviews} review`}
+                value={products.rating}
+                text={`${products.numReviews} review`}
               />
             </ListGroup.Item>
             <ListGroup.Item>
-              <h6><strong>Price :</strong> ${product.price}</h6>
+              <h6><strong>Price :</strong> ${products.price}</h6>
             </ListGroup.Item>
             <ListGroup.Item>
-            <h6><strong>Brand :</strong> {product.brand}</h6>
+            <h6><strong>Brand :</strong> {products.brand}</h6>
           </ListGroup.Item>
           <ListGroup.Item>
-          <h6><strong>Category :</strong> {product.category}</h6>
+          <h6><strong>Category :</strong> {products.category}</h6>
         </ListGroup.Item>
             <ListGroup.Item>
-              <h6><strong>Description :</strong> {product.description}</h6>
+              <h6><strong>Description :</strong> {products.description}</h6>
             </ListGroup.Item>
           
           </ListGroup>
@@ -55,7 +75,7 @@ const ProuductScreen = () => {
                 <Row>
                   <Col md={6}>price</Col>
                   <Col md={6}>
-                    <strong>{product.price}</strong>
+                    <strong>{products.price}</strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
@@ -68,7 +88,7 @@ const ProuductScreen = () => {
                   <Col md={6}>status</Col>
                   <Col md={6}>
                     <strong>
-                      {product.countInStock > 0 ? "In stock" : "Out of Stock"}
+                      {products.countInStock > 0 ? "In stock" : "Out of Stock"}
                     </strong>
                   </Col>
                 </Row>
