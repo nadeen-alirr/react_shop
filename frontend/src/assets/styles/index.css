@@ -1,4 +1,3 @@
-
 main {
   min-height: 80vh;
 }
@@ -22,6 +21,9 @@ main {
   overflow: hidden; /* Hide overflow content */
   text-overflow: ellipsis; /* Add ellipsis for long text */
   white-space: nowrap; /* Prevent wrapping */
+}
+.name-prouduct {
+  text-decoration: none;
 }
 
 table td,
@@ -54,9 +56,22 @@ table th {
 }
 
 /* header style */
-.nav_header{
-  background-color:#A3A39B;
+.nav_header {
+  background-color: #a3a39b;
   color: black !important;
 }
 
+.logo_text{
+  color: #f4f4f4;
+  font-weight: bolder;
+}
+/* prouduct screen style  */
 
+.btn-goback {
+  background-color: #e6cab3;
+}
+
+.btn-goback:hover,
+.btn-goback:active {
+  background-color: #e6cab3;
+}

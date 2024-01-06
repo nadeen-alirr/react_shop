@@ -13,12 +13,15 @@ import reportWebVitals from "./reportWebVitals";
 import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
 import HomeScreen from "./screens/HomeScreen";
+import ProuductScreen from "./screens/ProuductScreen";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
   createRoutesFromElements(
     // App must be logged in (authentecation required)
     <Route path="/" element={<App />}> 
       <Route index={true} path="/" element={<HomeScreen />} />
+      <Route  path="/products/:id" element={<ProuductScreen />} />
     </Route>
   )
 );

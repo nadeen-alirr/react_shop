@@ -67,7 +67,7 @@ const products=[
         brand: 'ChicHome',
         category: 'Furniture',
         price: 299.99,
-        countInStock: 12,
+        countInStock: 0,
         rating: 4.7,
         numReviews: 15,
       },

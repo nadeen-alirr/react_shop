@@ -6,12 +6,12 @@ const Proudcts = ({ proudcts }) => {
   return (
     <Card className=" p-3 rounded" style={{ height: '100%' }}>
       <Link to={`/products/${proudcts._id}`}>
-        <Card.Img src={proudcts.image} alt={proudcts.name} variant="top" height={300}/>
+        <Card.Img  src={proudcts.image} alt={proudcts.name} variant="top" style={{ height: '270px' }} />
       </Link>
       <Card.Body >
         <Link to={`/products/${proudcts._id}`}>
-          <Card.Title as="div">
-            <strong>{proudcts.name}</strong>
+          <Card.Title as="div" className="product-title">
+            <strong className="name-prouduct">{proudcts.name}</strong>
           </Card.Title>
         </Link>
         <Card.Text as="h3">{proudcts.price}</Card.Text>
