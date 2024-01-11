@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-    <Header />
-    <main className="py-3" >
-   <Container>
-   <Outlet/>
-   </Container>
-    </main>
-    <Footer/>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <Outlet />
+        </Container>
+      </main>
+      <Footer />
     </>
   );
 }

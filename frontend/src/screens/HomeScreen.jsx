@@ -1,36 +1,40 @@
-import React from 'react'
-import { useEffect ,useState } from 'react';
-import { products } from '../proudcts';
-import { Row ,Col } from 'react-bootstrap'
-import Proudcts from '../component/Proudcts';
-import axios from 'axios';
+import React from "react";
+import { Row, Col } from "react-bootstrap";
+import Proudcts from "../component/Proudcts";
+import { useGetProuductsQuery } from "../slices/ProuductApislice";
+import Loader from "../component/Loader";
+import Message from "../component/Message";
 
 const HomeScreen = () => {
-  const [product, setProduct] = useState([]);
-  useEffect(() => {
-    const featchProuducts=async()=>{
-      try{
-        const {data}= await axios.get('/api/prouduct');
-        setProduct(data)
-        console.log(data)
-      }
-      catch(err){
-        console.log(err.message)
-    }};
-    featchProuducts();
-  }, []);
-  return (
-    <div>
-    <h1>Latest proudcts</h1> 
-    <Row className='my-3'>
-    {product.map(proudcts => (
-      <Col key={proudcts._id} xl={3} sm={12} md={6} lg={4} className='my-2'>
-        <Proudcts proudcts={proudcts} />
-      </Col>
-    ))}
-    </Row>
-    </div>
-  )
-}
+  const { data: productsData, isLoading, error } = useGetProuductsQuery();
 
-export default HomeScreen
+  return (
+    <>
+      {isLoading ? (
+        <Loader/>
+        ) : error ? (
+        <Message variant="danger">{error?.data?.message || error.error}</Message>
+      ) : (
+        <>
+          <h1>Latest proudcts</h1>
+          <Row className="my-3">
+            {productsData.map((proudct) => (
+              <Col
+                key={proudct._id}
+                xl={3}
+                sm={12}
+                md={6}
+                lg={4}
+                className="my-2"
+              >
+                <Proudcts proudcts={proudct} />
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
+    </>
+  );
+};
+
+export default HomeScreen;

@@ -7,7 +7,8 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-
+import store from "./store";
+import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./assets/styles/bootstrap.custom.css";
@@ -27,7 +28,11 @@ const router = createBrowserRouter(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+  <Provider store={store}>
+  <RouterProvider router={router}>
+    <App />
+  </RouterProvider>
+</Provider>
   </React.StrictMode>
 );
 

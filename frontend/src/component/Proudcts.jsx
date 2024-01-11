@@ -16,7 +16,7 @@ const Proudcts = ({ proudcts }) => {
         </Link>
         <Card.Text as="h3">{proudcts.price}</Card.Text>
         <Card.Text as="div">
-        <Rating value={proudcts.rating} text={`${proudcts.numReviews } reviews`}/>
+        <Rating value={proudcts.rating} text={`${proudcts.reviews } reviews`}/>
         </Card.Text>
       </Card.Body>
     </Card>
