@@ -1,4 +1,4 @@
-//only for prouduct end points
+//customize only for prouduct injectEndpoints to apislice endpoints
 import { Prouducts_url } from "../constantvariable";
 import { api_slice } from "./apiSlices";
 
@@ -16,7 +16,6 @@ export const prouduct_Api_slice = api_slice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     })
-    
   }),
 });
 

@@ -65,6 +65,14 @@ table th {
   color: #f4f4f4;
   font-weight: bolder;
 }
+.count-cart{
+  color:#3c4c5d;
+  background-color:#E6CAB3 ;
+  border-radius: 50%;
+  margin-left: 5px;
+  padding: inherit
+}
+
 /* prouduct screen style  */
 
 .btn-goback {
@@ -75,3 +83,4 @@ table th {
 .btn-goback:active {
   background-color: #e6cab3;
 }
+

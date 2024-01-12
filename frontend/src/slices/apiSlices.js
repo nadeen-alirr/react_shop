@@ -8,6 +8,6 @@ export const api_slice = createApi({
     baseQuery,
     tagTypes:['Product','Order','User'],
     endpoints: (builder) => ({
-
+     //endpoints quires
     })
 })
