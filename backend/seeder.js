@@ -11,6 +11,7 @@ import connectDB from "./config/db.js";
 dotenv.config();
 connectDB();
 
+
 const importdata= async()=>{
     try {
         await Order.deleteMany();
@@ -38,6 +39,8 @@ const importdata= async()=>{
         process.exit(1);
     }
 }
+
+
 const destroy_data = async () => {
     try {
         await User.deleteMany();
@@ -52,7 +55,6 @@ const destroy_data = async () => {
 }
 
 if(process.argv[2]==='-d'){ //undefiened
-    
     importdata();
 }
 else{

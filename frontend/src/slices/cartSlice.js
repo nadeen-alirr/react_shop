@@ -1,13 +1,14 @@
+//this Cart slice contain reducer function() that will be called  when the slice is modified ,wil put it into store and provide it to app 
+
 import { createSlice } from "@reduxjs/toolkit";
 import { updatedState } from "../utils/CartUtils";
 
 const initialState = localStorage.getItem("cart")
   ?  JSON.parse(localStorage.getItem("cart")) 
-  : { cartItem: [] };
-  
-
+  : { cartItem : []}
 
 const cartslice = createSlice({
+  
   name: "cart",
   initialState,
   reducers: {
@@ -27,16 +28,16 @@ const cartslice = createSlice({
       }
       updatedState(state);
     },
-    
+
     //removing action
     removeFromCart: (state, action) => {
-      const Item_Remove_From_Cart = action.payload;
-      state.cartItem = state.cartItem.filter((n) => n._id!== Item_Remove_From_Cart._id);
-      updatedState(state);
-
+      const Item_Remove_From_Cart_id = action.payload;
+      state.cartItem = state.cartItem.filter((n) => n._id !== Item_Remove_From_Cart_id);
+      return updatedState(state);
     }
   },
 });
+
 export const { addToCart ,removeFromCart } = cartslice.actions;
 
 export default cartslice.reducer;

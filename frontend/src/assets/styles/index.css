@@ -65,14 +65,18 @@ table th {
   color: #f4f4f4;
   font-weight: bolder;
 }
-.count-cart{
-  color:#3c4c5d;
-  background-color:#E6CAB3 ;
+.count-cart {
+  color: #3c4c5d;
+  background-color: #e6cab3;
   border-radius: 50%;
   margin-left: 5px;
-  padding: inherit
+  padding: 0.40em 0.50em 0.4em 0.5em; 
+  font-size: 14px; 
 }
 
+.user_log{
+  
+}
 /* prouduct screen style  */
 
 .btn-goback {
@@ -83,4 +87,24 @@ table th {
 .btn-goback:active {
   background-color: #e6cab3;
 }
+/* cart screen style */
 
+
+
+/* regester style  */
+.error{
+  color:  #f70808; 
+  font-size: 14px;
+}
+.password_container{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.icon_eyes{
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+/* login style */

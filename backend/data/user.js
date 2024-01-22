@@ -7,12 +7,14 @@ const users =[
     email: "nadeen@example.com",
     isAdmin:true
 },
+
 {
     username:"nadeen2",
     password:bcrypt.hashSync('123980956',10),
     email: "nadeen2@example.com",
     isAdmin:false
 },
+
 {
     username:"nadeen3",
     password:bcrypt.hashSync('123453386',10),

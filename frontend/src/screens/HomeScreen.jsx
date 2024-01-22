@@ -7,13 +7,15 @@ import Message from "../component/Message";
 
 const HomeScreen = () => {
   const { data: productsData, isLoading, error } = useGetProuductsQuery();
-
+  
   return (
     <>
       {isLoading ? (
-        <Loader/>
-        ) : error ? (
-        <Message variant="danger">{error?.data?.message || error.error}</Message>
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">
+          {error?.data?.message || error.error}
+        </Message>
       ) : (
         <>
           <h1>Latest proudcts</h1>

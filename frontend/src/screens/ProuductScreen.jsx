@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link, useParams ,useNavigate} from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   Row,
   Col,
@@ -20,8 +20,8 @@ import { useDispatch } from "react-redux";
 
 const ProuductScreen = () => {
   const [qty, SetQty] = useState(1);
-  const dispatch=useDispatch();
-  const navigate=useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { id: prouductId } = useParams();
   const {
@@ -30,12 +30,10 @@ const ProuductScreen = () => {
     error,
   } = useGetOneProuductQuery(prouductId);
 
-
-  const Handel_Add_toCart =()=>{
-    dispatch(addToCart({...prouduct ,qty}));
+  const Handel_Add_toCart = () => {
+    dispatch(addToCart({ ...prouduct, qty }));
     navigate("/cart");
-
-  }
+  };
   return (
     <>
       <Link className="btn btn-light btn-goback" to="/">
@@ -134,19 +132,25 @@ const ProuductScreen = () => {
                           value={qty}
                           onChange={(e) => SetQty(e.target.value)}
                         >
-                          {[...Array(prouduct.countInStock).keys()].map((index)=>(
-                            <option key={index} value={index+1}>
-                            {index+1}
-                           
-                            </option>
-                          ))}
+                          {[...Array(prouduct.countInStock).keys()].map(
+                            (index) => (
+                              <option key={index} value={index + 1}>
+                                {index + 1}
+                              </option>
+                            )
+                          )}
                         </Form.Control>
                       </Col>
                     </Row>
                   </ListGroup.Item>
                 )}
                 <ListGroup.Item>
-                  <Button onClick={Handel_Add_toCart} disabled={prouduct.countInStock===0}>Add To Cart</Button>
+                  <Button
+                    onClick={Handel_Add_toCart}
+                    disabled={prouduct.countInStock === 0}
+                  >
+                    Add To Cart
+                  </Button>
                 </ListGroup.Item>
               </ListGroup>
             </Card>
